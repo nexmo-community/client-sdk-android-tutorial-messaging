@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging
+package com.vonage.tutorial.messaging
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

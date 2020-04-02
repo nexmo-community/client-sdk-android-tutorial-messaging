@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging
+package com.vonage.tutorial.messaging
 
 import android.app.Application
 import com.nexmo.client.NexmoClient

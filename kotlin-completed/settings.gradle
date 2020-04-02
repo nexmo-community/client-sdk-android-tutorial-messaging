@@ -1,2 +1,2 @@
-rootProject.name='TutorialMessanging'
+rootProject.name='client-sdk-android-tutorial-messaging'
 include ':app'

@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging
+package com.vonage.tutorial.messaging
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -16,7 +16,7 @@ import com.nexmo.client.NexmoTextEvent
 import com.nexmo.client.NexmoTypingEvent
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
-import com.vonage.tutorial.messanging.extension.toLiveData
+import com.vonage.tutorial.messaging.extension.toLiveData
 
 class ChatViewModel : ViewModel() {
 

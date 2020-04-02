@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging
+package com.vonage.tutorial.messaging
 
 data class User(
     val name: String,

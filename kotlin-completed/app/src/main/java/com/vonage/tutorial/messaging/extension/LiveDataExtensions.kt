@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging.extension
+package com.vonage.tutorial.messaging.extension
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

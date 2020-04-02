@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging
+package com.vonage.tutorial.messaging
 
 import android.os.Bundle
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.nexmo.client.request_listener.NexmoConnectionListener.ConnectionStatus
 import com.vonage.tutorial.R
-import com.vonage.tutorial.messanging.extension.observe
+import com.vonage.tutorial.messaging.extension.observe
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlin.properties.Delegates
 

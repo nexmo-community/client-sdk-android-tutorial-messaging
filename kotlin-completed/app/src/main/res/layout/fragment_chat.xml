@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        tools:context=".messanging.MainActivity">
+        tools:context=".messaging.MainActivity">
 
     <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/progressBar"

@@ -1,4 +1,4 @@
-package com.vonage.tutorial.messanging
+package com.vonage.tutorial.messaging
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.nexmo.client.NexmoMemberEvent
 import com.nexmo.client.NexmoMemberState
 import com.nexmo.client.NexmoTextEvent
 import com.vonage.tutorial.R
-import com.vonage.tutorial.messanging.extension.observe
+import com.vonage.tutorial.messaging.extension.observe
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 class ChatFragment : Fragment(R.layout.fragment_chat) {

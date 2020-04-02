@@ -5,7 +5,7 @@
         app:startDestination="@id/loginFragment">
     <fragment
             android:id="@+id/loginFragment"
-            android:name="com.vonage.tutorial.messanging.LoginFragment"
+            android:name="com.vonage.tutorial.messaging.LoginFragment"
             android:label="LoginFragment">
         <action
                 android:id="@+id/action_loginFragment_to_chatFragment"
@@ -13,6 +13,6 @@
     </fragment>
     <fragment
             android:id="@+id/chatFragment"
-            android:name="com.vonage.tutorial.messanging.ChatFragment"
+            android:name="com.vonage.tutorial.messaging.ChatFragment"
             android:label="ChatFragment" />
 </navigation>
