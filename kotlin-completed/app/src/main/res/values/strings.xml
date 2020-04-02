@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vonage Chat Tutorial</string>
+    <string name="login_as_jane">Login as Jane</string>
+    <string name="login_as_joe">Login as Joe</string>
+    <string name="send">Send</string>
+    <string name="message">Message</string>
+</resources>
