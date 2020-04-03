@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.nexmo.client.request_listener.NexmoConnectionListener.ConnectionStatus
 import com.vonage.tutorial.R
 import com.vonage.tutorial.messaging.extension.observe
+import com.vonage.tutorial.messaging.extension.toast
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlin.properties.Delegates
 
@@ -40,12 +41,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         observe(viewModel.connectionStatus, stateObserver)
 
         loginAsJaneButton.setOnClickListener {
-            viewModel.loginUser(Config.jane)
-            dataLoading = true
+            loginUser(Config.jane)
         }
 
         loginAsJoeButton.setOnClickListener {
-            viewModel.loginUser(Config.joe)
+            loginUser(Config.joe)
+        }
+    }
+
+    private fun loginUser(user: User) {
+        if (user.jwt.isNotBlank()) {
+            activity?.toast("Error: JWT for user: ${user.name} is empty")
+        } else {
+            viewModel.loginUser(user)
             dataLoading = true
         }
     }

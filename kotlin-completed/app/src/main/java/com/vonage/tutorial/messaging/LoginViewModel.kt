@@ -20,6 +20,8 @@ class LoginViewModel : ViewModel() {
     }
 
     fun loginUser(user: User) {
-        client.login(user.jwt)
+        if (!user.jwt.isBlank()) {
+            client.login(user.jwt)
+        }
     }
 }

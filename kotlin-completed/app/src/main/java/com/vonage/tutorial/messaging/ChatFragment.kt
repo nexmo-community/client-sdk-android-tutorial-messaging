@@ -2,7 +2,6 @@ package com.vonage.tutorial.messaging
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,6 +12,7 @@ import com.nexmo.client.NexmoMemberState
 import com.nexmo.client.NexmoTextEvent
 import com.vonage.tutorial.R
 import com.vonage.tutorial.messaging.extension.observe
+import com.vonage.tutorial.messaging.extension.toast
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 class ChatFragment : Fragment(R.layout.fragment_chat) {
@@ -66,7 +66,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
                 viewModel.sendMessage(messageEditText.text.toString())
                 messageEditText.setText("")
             } else {
-                Toast.makeText(activity, "Message is blank", Toast.LENGTH_SHORT).show();
+                activity?.toast("Message is blank")
             }
         }
     }
