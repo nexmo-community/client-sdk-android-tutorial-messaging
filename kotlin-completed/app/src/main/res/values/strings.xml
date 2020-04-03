@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vonage Chat Tutorial</string>
+    <string name="app_name">Client SDK Tutorial Messaging</string>
     <string name="login_as_jane">Login as Jane</string>
     <string name="login_as_joe">Login as Joe</string>
     <string name="send">Send</string>
