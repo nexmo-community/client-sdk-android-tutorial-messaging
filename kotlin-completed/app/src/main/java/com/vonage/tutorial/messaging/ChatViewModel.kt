@@ -108,4 +108,8 @@ class ChatViewModel : ViewModel() {
             }
         })
     }
+
+    override fun onCleared() {
+        conversation?.removeMessageEventListener(messageListener)
+    }
 }
