@@ -50,8 +50,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun loginUser(user: User) {
-        if (user.jwt.isNotBlank()) {
-            activity?.toast("Error: JWT for user: ${user.name} is empty")
+        if (user.jwt.isBlank()) {
+            activity?.toast("Error: Please set Config.${user.name.toLowerCase()}.jwt")
         } else {
             viewModel.loginUser(user)
             dataLoading = true

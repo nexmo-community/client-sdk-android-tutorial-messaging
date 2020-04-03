@@ -49,13 +49,13 @@ class ChatViewModel : ViewModel() {
         override fun onDeliveredReceipt(deliveredEvent: NexmoDeliveredEvent) {}
     }
 
-    fun init() {
-        getConversation()
+    fun init(conversationId: String) {
+        getConversation(conversationId)
         _userName.postValue(client.user.name)
     }
 
-    private fun getConversation() {
-        client.getConversation(Config.CONVERSATION_ID, object : NexmoRequestListener<NexmoConversation> {
+    private fun getConversation(conversationId: String) {
+        client.getConversation(conversationId, object : NexmoRequestListener<NexmoConversation> {
 
             override fun onSuccess(conversation: NexmoConversation?) {
                 this@ChatViewModel.conversation = conversation

@@ -53,7 +53,13 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.init()
+        if (Config.CONVERSATION_ID.isBlank()) {
+            activity?.toast("Please set Config.CONVERSATION_ID")
+            activity?.onBackPressed()
+            return
+        }
+
+        viewModel.init(Config.CONVERSATION_ID)
 
         observe(viewModel.errorMessage, errorMessageObserver)
         observe(viewModel.conversationMessages, conversationMessages)

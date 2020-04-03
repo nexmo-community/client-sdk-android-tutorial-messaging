@@ -7,7 +7,7 @@ data class User(
 
 object Config {
 
-    const val CONVERSATION_ID: String = "CON-58ea5d7c-d0db-494a-af82-823b5c7e8b82"
+    const val CONVERSATION_ID: String = ""
 
     val jane = User(
         "Jane",
