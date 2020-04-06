@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.nexmo.client.NexmoEvent
 import com.nexmo.client.NexmoMemberEvent
 import com.nexmo.client.NexmoMemberState
@@ -78,7 +79,10 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
             }
         }
 
-        logoutButton.setOnClickListener { viewModel.onLogout() }
+        logoutButton.setOnClickListener {
+            viewModel.onLogout()
+            findNavController().popBackStack()
+        }
     }
 
     private fun getConversationLine(textEvent: NexmoTextEvent): String {
