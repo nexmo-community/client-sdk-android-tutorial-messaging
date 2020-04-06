@@ -15,7 +15,7 @@ import com.vonage.tutorial.messaging.extension.observe
 import com.vonage.tutorial.messaging.extension.toast
 import kotlinx.android.synthetic.main.fragment_chat.*
 
-class ChatFragment : Fragment(R.layout.fragment_chat) {
+class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
 
     private val viewModel by viewModels<ChatViewModel>()
 
@@ -91,5 +91,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
             NexmoMemberState.LEFT -> "$user left"
             else -> "Error: Unknown member event state"
         }
+    }
+
+    override fun onBackPressed() {
+        viewModel.logout()
     }
 }
