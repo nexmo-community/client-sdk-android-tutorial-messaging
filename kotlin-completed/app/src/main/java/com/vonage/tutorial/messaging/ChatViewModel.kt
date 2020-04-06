@@ -49,8 +49,8 @@ class ChatViewModel : ViewModel() {
         override fun onDeliveredReceipt(deliveredEvent: NexmoDeliveredEvent) {}
     }
 
-    fun onInit(conversationId: String) {
-        getConversation(conversationId)
+    fun onInit() {
+        getConversation(Config.CONVERSATION_ID)
         _userName.postValue(client.user.name)
     }
 

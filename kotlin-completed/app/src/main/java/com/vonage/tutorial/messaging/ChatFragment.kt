@@ -59,7 +59,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
             return
         }
 
-        viewModel.onInit(Config.CONVERSATION_ID)
+        viewModel.onInit()
 
         observe(viewModel.errorMessage, errorMessageObserver)
         observe(viewModel.conversationMessages, conversationMessages)
