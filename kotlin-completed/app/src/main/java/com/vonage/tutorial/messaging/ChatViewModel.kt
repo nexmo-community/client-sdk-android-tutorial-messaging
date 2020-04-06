@@ -113,6 +113,10 @@ class ChatViewModel : ViewModel() {
         client.logout()
     }
 
+    fun onLogout() {
+        client.logout()
+    }
+
     override fun onCleared() {
         conversation?.removeMessageEventListener(messageListener)
     }

@@ -12,6 +12,7 @@ import com.nexmo.client.NexmoMemberState
 import com.nexmo.client.NexmoTextEvent
 import com.vonage.tutorial.R
 import com.vonage.tutorial.messaging.extension.observe
+import com.vonage.tutorial.messaging.extension.setText
 import com.vonage.tutorial.messaging.extension.toast
 import kotlinx.android.synthetic.main.fragment_chat.*
 
@@ -27,7 +28,8 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
     }
 
     private var userNameObserver = Observer<String> {
-        userNameTextView.text = "$it:"
+        userNameTextView.setText(R.string.user_says, it)
+        logoutButton.setText(R.string.logout, it)
     }
 
     private var conversationMessages = Observer<List<NexmoEvent>?> { events ->
@@ -75,6 +77,8 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
                 activity?.toast("Message is blank")
             }
         }
+
+        logoutButton.setOnClickListener { viewModel.onLogout() }
     }
 
     private fun getConversationLine(textEvent: NexmoTextEvent): String {

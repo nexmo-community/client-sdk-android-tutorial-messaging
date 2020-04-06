@@ -4,4 +4,6 @@
     <string name="login_as_joe">Login as Joe</string>
     <string name="send">Send</string>
     <string name="message">Message</string>
+    <string name="logout">Logout %1$s</string>
+    <string name="user_says">%1$s :</string>
 </resources>
