@@ -53,7 +53,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         if (user.jwt.isBlank()) {
             activity?.toast("Error: Please set Config.${user.name.toLowerCase()}.jwt")
         } else {
-            viewModel.loginUser(user)
+            viewModel.onLoginUser(user)
             dataLoading = true
         }
     }

@@ -49,7 +49,7 @@ class ChatViewModel : ViewModel() {
         override fun onDeliveredReceipt(deliveredEvent: NexmoDeliveredEvent) {}
     }
 
-    fun init(conversationId: String) {
+    fun onInit(conversationId: String) {
         getConversation(conversationId)
         _userName.postValue(client.user.name)
     }
@@ -94,7 +94,7 @@ class ChatViewModel : ViewModel() {
             })
     }
 
-    fun sendMessage(message: String) {
+    fun onSendMessage(message: String) {
         if (conversation == null) {
             _errorMessage.postValue("Error: Conversation does not exist")
             return
@@ -109,11 +109,11 @@ class ChatViewModel : ViewModel() {
         })
     }
 
-    override fun onCleared() {
-        conversation?.removeMessageEventListener(messageListener)
+    fun onBackPressed() {
+        client.logout()
     }
 
-    fun logout() {
-        client.logout()
+    override fun onCleared() {
+        conversation?.removeMessageEventListener(messageListener)
     }
 }

@@ -59,7 +59,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
             return
         }
 
-        viewModel.init(Config.CONVERSATION_ID)
+        viewModel.onInit(Config.CONVERSATION_ID)
 
         observe(viewModel.errorMessage, errorMessageObserver)
         observe(viewModel.conversationMessages, conversationMessages)
@@ -69,7 +69,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
             val message = messageEditText.text.toString()
 
             if (message.isNotBlank()) {
-                viewModel.sendMessage(messageEditText.text.toString())
+                viewModel.onSendMessage(messageEditText.text.toString())
                 messageEditText.setText("")
             } else {
                 activity?.toast("Message is blank")
@@ -94,6 +94,6 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
     }
 
     override fun onBackPressed() {
-        viewModel.logout()
+        viewModel.onBackPressed()
     }
 }
