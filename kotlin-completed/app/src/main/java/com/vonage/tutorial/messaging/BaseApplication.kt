@@ -8,7 +8,7 @@ class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // Init NexmoClient. You can retrieve NexmoClient instance by using NexmoClient.get()
+        // Init the NexmoClient. You can retrieve NexmoClient instance latter by using NexmoClient.get()
         NexmoClient.Builder().build(this)
     }
 }

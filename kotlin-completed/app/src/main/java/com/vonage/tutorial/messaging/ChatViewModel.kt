@@ -20,7 +20,7 @@ import com.vonage.tutorial.messaging.extension.toLiveData
 
 class ChatViewModel : ViewModel() {
 
-    private var client: NexmoClient = NexmoClient.get()
+    private var client = NexmoClient.get()
 
     private var conversation: NexmoConversation? = null
 
@@ -50,12 +50,12 @@ class ChatViewModel : ViewModel() {
     }
 
     fun onInit() {
-        getConversation(Config.CONVERSATION_ID)
+        getConversation()
         _userName.postValue(client.user.name)
     }
 
-    private fun getConversation(conversationId: String) {
-        client.getConversation(conversationId, object : NexmoRequestListener<NexmoConversation> {
+    private fun getConversation() {
+        client.getConversation(Config.CONVERSATION_ID, object : NexmoRequestListener<NexmoConversation> {
 
             override fun onSuccess(conversation: NexmoConversation?) {
                 this@ChatViewModel.conversation = conversation
@@ -73,12 +73,6 @@ class ChatViewModel : ViewModel() {
         })
     }
 
-    private fun updateConversation(textEvent: NexmoTextEvent) {
-        val messages = _conversationMessages.value?.toMutableList() ?: mutableListOf()
-        messages.add(textEvent)
-        _conversationMessages.postValue(messages)
-    }
-
     private fun getConversationEvents(conversation: NexmoConversation) {
         conversation.getEvents(100, NexmoPageOrder.NexmoMPageOrderAsc, null,
             object : NexmoRequestListener<NexmoEventsPage> {
@@ -92,6 +86,12 @@ class ChatViewModel : ViewModel() {
                     _errorMessage.postValue("Error: Unable to load conversation events ${apiError.message}")
                 }
             })
+    }
+
+    private fun updateConversation(textEvent: NexmoTextEvent) {
+        val messages = _conversationMessages.value?.toMutableList() ?: mutableListOf()
+        messages.add(textEvent)
+        _conversationMessages.postValue(messages)
     }
 
     fun onSendMessage(message: String) {
