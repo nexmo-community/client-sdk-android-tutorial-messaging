@@ -20,7 +20,7 @@ import com.vonage.tutorial.messaging.extension.toLiveData
 
 class ChatViewModel : ViewModel() {
 
-    private var client = NexmoClient.get()
+    private val client = NexmoClient.get()
 
     private var conversation: NexmoConversation? = null
 

@@ -11,7 +11,7 @@ class LoginViewModel : ViewModel() {
     private val _connectionStatus = MutableLiveData<ConnectionStatus>()
     val connectionStatus = _connectionStatus.toLiveData()
 
-    private var client = NexmoClient.get()
+    private val client = NexmoClient.get()
 
     init {
         client.setConnectionListener { newConnectionStatus, _ ->
