@@ -56,7 +56,6 @@ class ChatViewModel : ViewModel() {
 
     private fun getConversation() {
         client.getConversation(Config.CONVERSATION_ID, object : NexmoRequestListener<NexmoConversation> {
-
             override fun onSuccess(conversation: NexmoConversation?) {
                 this@ChatViewModel.conversation = conversation
 
