@@ -33,8 +33,8 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         logoutButton.setText(R.string.logout, it)
     }
 
-    private var conversationMessages = Observer<List<NexmoEvent>?> { events ->
-        // TODO: React to new messages
+    private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
+        // TODO: React to new events
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         viewModel.onInit()
 
         observe(viewModel.errorMessage, errorMessageObserver)
-        observe(viewModel.conversationMessages, conversationMessages)
+        observe(viewModel.conversationEvents, conversationEvents)
         observe(viewModel.userName, userNameObserver)
 
         sendMessageButton.setOnClickListener {

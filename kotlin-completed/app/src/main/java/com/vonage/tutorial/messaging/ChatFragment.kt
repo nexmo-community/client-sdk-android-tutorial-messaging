@@ -33,8 +33,8 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         logoutButton.setText(R.string.logout, it)
     }
 
-    private var conversationMessages = Observer<List<NexmoEvent>?> { events ->
-        val messages = events?.mapNotNull {
+    private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
+        val events = events?.mapNotNull {
             when (it) {
                 is NexmoMemberEvent -> getConversationLine(it)
                 is NexmoTextEvent -> getConversationLine(it)
@@ -43,10 +43,10 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         }
 
         // Production application should utilise RecyclerView to provide better UX
-        conversationMessagesTextView.text = if (messages.isNullOrEmpty()) {
-            "Conversation has No messages"
+        conversationEventsTextView.text = if (events.isNullOrEmpty()) {
+            "Conversation has no events"
         } else {
-            messages.joinToString(separator = "\n")
+            events.joinToString(separator = "\n")
         }
 
         progressBar.isVisible = false
@@ -65,7 +65,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         viewModel.onInit()
 
         observe(viewModel.errorMessage, errorMessageObserver)
-        observe(viewModel.conversationMessages, conversationMessages)
+        observe(viewModel.conversationEvents, conversationEvents)
         observe(viewModel.userName, userNameObserver)
 
         sendMessageButton.setOnClickListener {

@@ -26,8 +26,8 @@ class ChatViewModel : ViewModel() {
     private val _userName = MutableLiveData<String>()
     val userName = _userName.toLiveData()
 
-    private val _conversationMessages = MutableLiveData<List<NexmoEvent>?>()
-    val conversationMessages = _conversationMessages.toLiveData()
+    private val _conversationEvents = MutableLiveData<List<NexmoEvent>?>()
+    val conversationEvents = _conversationEvents.toLiveData()
 
     private val messageListener = object : NexmoMessageEventListener {
         override fun onTypingEvent(typingEvent: NexmoTypingEvent) {}
@@ -59,9 +59,9 @@ class ChatViewModel : ViewModel() {
     }
 
     private fun updateConversation(textEvent: NexmoTextEvent) {
-        val messages = _conversationMessages.value?.toMutableList() ?: mutableListOf()
-        messages.add(textEvent)
-        _conversationMessages.postValue(messages)
+        val events = _conversationEvents.value?.toMutableList() ?: mutableListOf()
+        events.add(textEvent)
+        _conversationEvents.postValue(events)
     }
 
     fun onSendMessage(message: String) {
