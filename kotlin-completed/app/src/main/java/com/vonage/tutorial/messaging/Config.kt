@@ -9,12 +9,12 @@ object Config {
 
     const val CONVERSATION_ID: String = ""
 
-    val jane = User(
-        "Jane",
+    val user1 = User(
+        "USER1",
         ""
     )
-    val joe = User(
-        "Joe",
+    val user2 = User(
+        "USER2",
         ""
     )
 }

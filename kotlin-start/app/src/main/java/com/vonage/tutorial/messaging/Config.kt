@@ -9,12 +9,12 @@ object Config {
 
     const val CONVERSATION_ID: String = "" // TODO: set conversation Id
 
-    val jane = User(
-        "Jane",
-        "" // TODO: "set Jane's JWT token"
+    val user1 = User(
+        "USER1",
+        "" // TODO: "set USER1 JWT token"
     )
-    val joe = User(
-        "Joe",
-        "" // TODO: set Joe's JWT token"
+    val user2 = User(
+        "USER2",
+        "" // TODO: set USER2 JWT token"
     )
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Client SDK Tutorial Messaging</string>
-    <string name="login_as_jane">Login as Jane</string>
-    <string name="login_as_joe">Login as Joe</string>
+    <string name="login_as_user1">Login as User1</string>
+    <string name="login_as_user2">Login as User2</string>
     <string name="send">Send</string>
     <string name="message">Message</string>
     <string name="logout">Logout %1$s</string>
