@@ -42,7 +42,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "androidx.navigation:navigation-fragment-ktx:$android_navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$android_navigation_version"
-    implementation 'com.nexmo.android:client-sdk:2.6.1'
+    implementation 'com.nexmo.android:client-sdk:2.6.4'
 
     testImplementation 'junit:junit:4.13'
 
