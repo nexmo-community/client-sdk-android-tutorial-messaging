@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple">#871FFF</color>
+    <color name="purple_alpha_60">#96871FFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_alpha_60">#96FFFFFF</color>
+    <color name="woodsmoke">#131415</color>
+
+    <color name="red">#f25a6b</color>
+    <color name="green">#0ca078</color>
+</resources>

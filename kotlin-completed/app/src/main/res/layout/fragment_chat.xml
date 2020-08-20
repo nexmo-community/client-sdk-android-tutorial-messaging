@@ -83,6 +83,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/message"
                 android:inputType="text"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/userNameTextView"
                 app:layout_constraintRight_toLeftOf="@id/sendMessageButton"
