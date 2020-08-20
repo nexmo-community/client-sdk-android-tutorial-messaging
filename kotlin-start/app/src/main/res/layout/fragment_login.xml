@@ -18,10 +18,10 @@
             app:layout_constraintVertical_bias="0.1" />
 
     <Button
-            android:id="@+id/loginAsUser1Button"
+            android:id="@+id/loginAsAliceButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_as_user1"
+            android:text="@string/login_as_alice"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -29,14 +29,14 @@
             app:layout_constraintVertical_bias="0.2" />
 
     <Button
-            android:id="@+id/loginAsUser2Button"
+            android:id="@+id/loginAsBobButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_as_user2"
+            android:text="@string/login_as_bob"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginAsUser1Button"
+            app:layout_constraintTop_toBottomOf="@id/loginAsAliceButton"
             app:layout_constraintVertical_bias="0.1" />
 
     <androidx.core.widget.ContentLoadingProgressBar
@@ -48,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/loginAsUser2Button" />
+            app:layout_constraintTop_toBottomOf="@id/loginAsBobButton" />
 
     <TextView
             android:id="@+id/connectionStatusTextView"

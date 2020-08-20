@@ -19,8 +19,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val viewModel by viewModels<LoginViewModel>()
 
     private var dataLoading: Boolean by Delegates.observable(false) { _, _, newValue ->
-        loginAsUser1Button.isEnabled = !newValue
-        loginAsUser2Button.isEnabled = !newValue
+        loginAsAliceButton.isEnabled = !newValue
+        loginAsBobButton.isEnabled = !newValue
         progressBar.isVisible = newValue
     }
 
@@ -40,12 +40,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         observe(viewModel.connectionStatus, stateObserver)
 
-        loginAsUser1Button.setOnClickListener {
-            loginUser(Config.user1)
+        loginAsAliceButton.setOnClickListener {
+            loginUser(Config.alice)
         }
 
-        loginAsUser2Button.setOnClickListener {
-            loginUser(Config.user2)
+        loginAsBobButton.setOnClickListener {
+            loginUser(Config.bob)
         }
     }
 
