@@ -21,7 +21,7 @@ class LoginViewModel : ViewModel() {
     init {
         client.setConnectionListener { newConnectionStatus, _ ->
             if (newConnectionStatus == ConnectionStatus.CONNECTED) {
-                navigateToChatFragment()
+                navigate()
                 return@setConnectionListener
             }
 
@@ -29,7 +29,7 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    private fun navigateToChatFragment() {
+    private fun navigate() {
         val navDirections = LoginFragmentDirections.actionLoginFragmentToChatFragment()
         navManager.navigate(navDirections)
     }

@@ -22,7 +22,7 @@ class LoginViewModel : ViewModel() {
         // TODO: Add client connection listener
     }
 
-    private fun navigateToChatFragment() {
+    private fun navigate() {
         val userName = checkNotNull(user?.name) { "user is null" }
         val navDirections = LoginFragmentDirections.actionLoginFragmentToChatFragment()
         navManager.navigate(navDirections)
