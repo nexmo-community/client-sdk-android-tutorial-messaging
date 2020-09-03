@@ -58,14 +58,12 @@ public class ChatFragment extends Fragment implements BackPressHandler {
                 continue;
             }
 
-            String line;
+            String line = "";
 
             if (event instanceof NexmoMemberEvent) {
                 line = getConversationLine((NexmoMemberEvent) event);
             } else if (event instanceof NexmoTextEvent) {
                 line = getConversationLine((NexmoTextEvent) event);
-            } else {
-                line = event.toString();
             }
 
             lines.add(line);
