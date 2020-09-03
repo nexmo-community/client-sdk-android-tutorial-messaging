@@ -141,7 +141,7 @@ public class ChatFragment extends Fragment implements BackPressHandler {
 
     private String getConversationLine(NexmoTextEvent textEvent) {
         String user = textEvent.getFromMember().getUser().getName();
-        return "$user said: " + textEvent.getText();
+        return user + "  said: " + textEvent.getText();
     }
 
     private String getConversationLine(NexmoMemberEvent memberEvent) {
