@@ -65,39 +65,12 @@ public class ChatViewModel extends ViewModel {
     }
 
     private void getConversation() {
-        client.getConversation(Config.CONVERSATION_ID, new NexmoRequestListener<NexmoConversation>() {
-            @Override
-            public void onSuccess(@Nullable NexmoConversation conversation) {
-                ChatViewModel.this.conversation = conversation;
-
-                if (ChatViewModel.this.conversation != null) {
-                    getConversationEvents(ChatViewModel.this.conversation);
-                    ChatViewModel.this.conversation.addMessageEventListener(messageListener);
-                }
-            }
-
-            @Override
-            public void onError(@NonNull NexmoApiError apiError) {
-                ChatViewModel.this.conversation = null;
-                _errorMessage.postValue("Error: Unable to load conversation " + apiError.getMessage());
-            }
-        });
+        // TODO Fetch the conversation
     }
 
 
     private void getConversationEvents(NexmoConversation conversation) {
-        conversation.getEvents(100, NexmoPageOrder.NexmoMPageOrderAsc, null,
-                new NexmoRequestListener<NexmoEventsPage>() {
-                    @Override
-                    public void onSuccess(@Nullable NexmoEventsPage nexmoEventsPage) {
-                        _conversationEvents.postValue(new ArrayList<>(nexmoEventsPage.getPageResponse().getData()));
-                    }
-
-                    @Override
-                    public void onError(@NonNull NexmoApiError apiError) {
-                        _errorMessage.postValue("Error: Unable to load conversation events " + apiError.getMessage());
-                    }
-                });
+        // TODO: Fetch the conversation events
     }
 
     private void updateConversation(NexmoTextEvent textEvent) {
@@ -112,22 +85,7 @@ public class ChatViewModel extends ViewModel {
     }
 
     public void onSendMessage(String message) {
-        if (conversation == null) {
-            _errorMessage.postValue("Error: Conversation does not exist");
-            return;
-        }
-
-        conversation.sendText(message, new NexmoRequestListener<Void>() {
-            @Override
-            public void onError(@NonNull NexmoApiError apiError) {
-
-            }
-
-            @Override
-            public void onSuccess(@Nullable Void aVoid) {
-
-            }
-        });
+        // TODO: end new message to client SDK
     }
 
     public void onBackPressed() {
@@ -140,6 +98,6 @@ public class ChatViewModel extends ViewModel {
 
     @Override
     protected void onCleared() {
-        conversation.removeMessageEventListener(messageListener);
+        // TODO: Unregister message listener
     }
 }

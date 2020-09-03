@@ -51,11 +51,11 @@ class ChatViewModel : ViewModel() {
     }
 
     private fun getConversation() {
-        // TODO: Fetch the conversation
+        TODO("Fetch the conversation")
     }
 
     private fun getConversationEvents(conversation: NexmoConversation) {
-        // TODO: Fetch the conversation events
+        TODO("Fetch the conversation events")
     }
 
     private fun updateConversation(textEvent: NexmoTextEvent) {
@@ -65,7 +65,7 @@ class ChatViewModel : ViewModel() {
     }
 
     fun onSendMessage(message: String) {
-        // TODO: Send new message to client SDK
+        TODO("Send new message to client SDK")
     }
 
     fun onBackPressed() {
@@ -77,6 +77,6 @@ class ChatViewModel : ViewModel() {
     }
 
     override fun onCleared() {
-        // TODO: Unregister message listener
+        TODO("Unregister message listener")
     }
 }

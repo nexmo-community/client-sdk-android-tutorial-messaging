@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- disabled -->
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/buttonCornerRadius" />
+            <padding android:bottom="@dimen/buttonPadding" />
+            <padding android:top="@dimen/buttonPadding" />
+            <padding android:left="@dimen/buttonPadding" />
+            <padding android:right="@dimen/buttonPadding" />
+            <solid android:color="@color/purple_alpha_60" />
+        </shape>
+    </item>
+
+    <!-- pressed -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/buttonCornerRadius" />
+            <padding android:bottom="@dimen/buttonPadding" />
+            <padding android:top="@dimen/buttonPadding" />
+            <padding android:left="@dimen/buttonPadding" />
+            <padding android:right="@dimen/buttonPadding" />
+            <solid android:color="@color/purple" />
+        </shape>
+    </item>
+
+    <!-- released -->
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <corners android:radius="@dimen/buttonCornerRadius" />
+            <padding android:bottom="@dimen/buttonPadding" />
+            <padding android:top="@dimen/buttonPadding" />
+            <padding android:left="@dimen/buttonPadding" />
+            <padding android:right="@dimen/buttonPadding" />
+            <solid android:color="@color/purple" />
+        </shape>
+    </item>
+
+</selector>

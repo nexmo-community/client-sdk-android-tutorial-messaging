@@ -19,7 +19,7 @@ class LoginViewModel : ViewModel() {
     private val client: NexmoClient = TODO("Retrieve NexmoClient instance")
 
     init {
-        // TODO: Add client connection listener
+        TODO("Add client connection listener")
     }
 
     private fun navigate() {
@@ -29,6 +29,6 @@ class LoginViewModel : ViewModel() {
     }
 
     fun onLoginUser(user: User) {
-        // TODO: Login user
+        TODO("Login user")
     }
 }

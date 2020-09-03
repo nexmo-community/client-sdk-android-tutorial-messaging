@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/woodsmoke</color>
+    <color name="colorAccent">@color/purple</color>
+
+    <color name="negativeCallAction">@color/red</color>
+    <color name="positiveCallAction">@color/green</color>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Client SDK Tutorial Messaging</string>
+    <string name="login_as_alice">Login as Alice</string>
+    <string name="login_as_bob">Login as Bob</string>
+    <string name="send">Send</string>
+    <string name="message">Message</string>
+    <string name="logout">Logout %1$s</string>
+    <string name="user_says">%1$s :</string>
+</resources>

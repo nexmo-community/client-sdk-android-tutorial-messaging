@@ -13,7 +13,7 @@ import com.vonage.tutorial.messaging.util.StringUtils;
 
 public class LoginViewModel extends ViewModel {
 
-    private NexmoClient client = NexmoClient.get();
+    private NexmoClient client; // TODO: Retrieve NexmoClient instance
 
     NavManager navManager = NavManager.getInstance();
     private MutableLiveData<ConnectionStatus> connectionStatusMutableLiveData = new MutableLiveData<ConnectionStatus>();
@@ -21,19 +21,8 @@ public class LoginViewModel extends ViewModel {
 
     private User user;
 
-
     public LoginViewModel() {
-        client.setConnectionListener(new NexmoConnectionListener() {
-            @Override
-            public void onConnectionStatusChange(@NonNull ConnectionStatus connectionStatus, @NonNull ConnectionStatusReason connectionStatusReason) {
-                if (connectionStatus == ConnectionStatus.CONNECTED) {
-                    navigate();
-                    return;
-                }
-
-                connectionStatusMutableLiveData.postValue(connectionStatus);
-            }
-        });
+        // TODO: Add client connection listener
     }
 
     private void navigate() {
@@ -48,9 +37,6 @@ public class LoginViewModel extends ViewModel {
     }
 
     void onLoginUser(User user) {
-        if (!StringUtils.isBlank(user.jwt)) {
-            this.user = user;
-            client.login(user.jwt);
-        }
+        // TODO: Login user
     }
 }
