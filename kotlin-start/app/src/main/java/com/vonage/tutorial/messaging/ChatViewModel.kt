@@ -58,7 +58,7 @@ class ChatViewModel : ViewModel() {
         TODO("Fetch the conversation events")
     }
 
-    private fun updateConversation(textEvent: NexmoTextEvent) {
+    private fun updateConversation(textEvent: NexmoEvent) {
         val events = _conversationEvents.value?.toMutableList() ?: mutableListOf()
         events.add(textEvent)
         _conversationEvents.postValue(events)
