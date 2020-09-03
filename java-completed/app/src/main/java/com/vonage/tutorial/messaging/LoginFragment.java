@@ -22,7 +22,6 @@ public class LoginFragment extends Fragment {
     Button loginAsBobButton;
     ProgressBar progressBar;
     TextView connectionStatusTextView;
-    private String[] callsPermissions = {Manifest.permission.READ_PHONE_STATE, Manifest.permission.RECORD_AUDIO};
     private LoginViewModel viewModel;
 
     public LoginFragment() {

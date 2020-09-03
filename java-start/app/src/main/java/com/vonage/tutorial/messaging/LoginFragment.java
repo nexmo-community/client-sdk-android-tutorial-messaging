@@ -1,6 +1,5 @@
 package com.vonage.tutorial.messaging;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +20,6 @@ public class LoginFragment extends Fragment {
     Button loginAsBobButton;
     ProgressBar progressBar;
     TextView connectionStatusTextView;
-    private String[] callsPermissions = {Manifest.permission.READ_PHONE_STATE, Manifest.permission.RECORD_AUDIO};
     private LoginViewModel viewModel;
 
     public LoginFragment() {
