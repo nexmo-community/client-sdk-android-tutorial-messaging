@@ -61,7 +61,7 @@ class ChatViewModel : ViewModel() {
 
                 conversation?.let {
                     getConversationEvents(it)
-                    conversation.addMessageEventListener(messageListener)
+                    it.addMessageEventListener(messageListener)
                 }
             }
 
