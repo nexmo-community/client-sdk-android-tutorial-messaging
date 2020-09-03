@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import com.nexmo.client.request_listener.NexmoConnectionListener.ConnectionStatus;
@@ -52,8 +51,6 @@ public class LoginFragment extends Fragment {
         loginAsAliceButton.setOnClickListener(it -> loginUser(Config.getAlice()));
 
         loginAsBobButton.setOnClickListener(it -> loginUser(Config.getBob()));
-
-        requestCallPermissions();
     }
 
     private void setDataLoading(Boolean dataLoading) {
@@ -78,11 +75,5 @@ public class LoginFragment extends Fragment {
             viewModel.onLoginUser(user);
             setDataLoading(true);
         }
-    }
-
-    private void requestCallPermissions() {
-        int CALL_PERMISSIONS_REQUEST = 123;
-
-        ActivityCompat.requestPermissions(requireActivity(), callsPermissions, CALL_PERMISSIONS_REQUEST);
     }
 }
