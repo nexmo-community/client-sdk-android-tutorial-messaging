@@ -1,10 +1,10 @@
 package com.vonage.tutorial.messaging
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoClient
 import com.nexmo.client.request_listener.NexmoConnectionListener.ConnectionStatus
-import com.vonage.tutorial.messaging.extension.toLiveData
 import com.vonage.tutorial.messaging.util.NavManager
 
 class LoginViewModel : ViewModel() {
@@ -12,7 +12,7 @@ class LoginViewModel : ViewModel() {
     private val navManager = NavManager
 
     private val _connectionStatus = MutableLiveData<ConnectionStatus>()
-    val connectionStatus = _connectionStatus.toLiveData()
+    val connectionStatus = _connectionStatus as LiveData<ConnectionStatus>
 
     private var user: User? = null
 
@@ -35,7 +35,7 @@ class LoginViewModel : ViewModel() {
     }
 
     fun onLoginUser(user: User) {
-        if (!user.jwt.isBlank()) {
+        if (user.jwt.isNotBlank()) {
             this.user = user
             client.login(user.jwt)
         }

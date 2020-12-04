@@ -1,5 +1,6 @@
 package com.vonage.tutorial.messaging
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.nexmo.client.NexmoAttachmentEvent
@@ -16,7 +17,6 @@ import com.nexmo.client.NexmoTextEvent
 import com.nexmo.client.NexmoTypingEvent
 import com.nexmo.client.request_listener.NexmoApiError
 import com.nexmo.client.request_listener.NexmoRequestListener
-import com.vonage.tutorial.messaging.extension.toLiveData
 
 class ChatViewModel : ViewModel() {
 
@@ -25,13 +25,13 @@ class ChatViewModel : ViewModel() {
     private var conversation: NexmoConversation? = null
 
     private val _errorMessage = MutableLiveData<String>()
-    val errorMessage = _errorMessage.toLiveData()
+    val errorMessage = _errorMessage as LiveData<String>
 
     private val _userName = MutableLiveData<String>()
-    val userName = _userName.toLiveData()
+    val userName = _userName as LiveData<String>
 
     private val _conversationEvents = MutableLiveData<List<NexmoEvent>?>()
-    val conversationEvents = _conversationEvents.toLiveData()
+    val conversationEvents = _conversationEvents as LiveData<List<NexmoEvent>?>
 
     private val messageListener = object : NexmoMessageEventListener {
         override fun onTypingEvent(typingEvent: NexmoTypingEvent) {}
