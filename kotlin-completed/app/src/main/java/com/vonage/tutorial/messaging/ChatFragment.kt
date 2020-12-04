@@ -2,6 +2,7 @@ package com.vonage.tutorial.messaging
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,7 +15,6 @@ import com.nexmo.client.NexmoTextEvent
 import com.vonage.tutorial.R
 import com.vonage.tutorial.messaging.extension.observe
 import com.vonage.tutorial.messaging.extension.setText
-import com.vonage.tutorial.messaging.extension.toast
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
@@ -33,11 +33,11 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         logoutButton.setText(R.string.logout, it)
     }
 
-    private var conversationEvents = Observer<List<NexmoEvent>?> { events ->
-        val events = events?.mapNotNull {
-            when (it) {
-                is NexmoMemberEvent -> getConversationLine(it)
-                is NexmoTextEvent -> getConversationLine(it)
+    private var conversationEvents = Observer<List<NexmoEvent>?> {
+        val events = it?.mapNotNull { event ->
+            when (event) {
+                is NexmoMemberEvent -> getConversationLine(event)
+                is NexmoTextEvent -> getConversationLine(event)
                 else -> null
             }
         }
@@ -57,7 +57,8 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
         super.onViewCreated(view, savedInstanceState)
 
         if (Config.CONVERSATION_ID.isBlank()) {
-            activity?.toast("Please set Config.CONVERSATION_ID")
+
+            Toast.makeText(context, "Please set Config.CONVERSATION_ID", Toast.LENGTH_SHORT).show()
             activity?.onBackPressed()
             return
         }
@@ -75,7 +76,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
                 viewModel.onSendMessage(messageEditText.text.toString())
                 messageEditText.setText("")
             } else {
-                activity?.toast("Message is blank")
+                Toast.makeText(context, "Message is blank", Toast.LENGTH_SHORT).show()
             }
         }
 
