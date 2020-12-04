@@ -13,7 +13,6 @@ import com.nexmo.client.NexmoMemberEvent
 import com.nexmo.client.NexmoMemberState
 import com.nexmo.client.NexmoTextEvent
 import com.vonage.tutorial.R
-import com.vonage.tutorial.messaging.extension.setText
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
@@ -28,8 +27,8 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
     }
 
     private var userNameObserver = Observer<String> {
-        userNameTextView.setText(R.string.user_says, it)
-        logoutButton.setText(R.string.logout, it)
+        userNameTextView.text = resources.getString(R.string.user_says, it)
+        logoutButton.text = resources.getString(R.string.logout, it)
     }
 
     private var conversationEvents = Observer<List<NexmoEvent>?> {
