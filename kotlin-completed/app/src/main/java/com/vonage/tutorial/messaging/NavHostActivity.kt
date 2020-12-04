@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.vonage.tutorial.R
-import com.vonage.tutorial.messaging.extension.currentNavigationFragment
 import com.vonage.tutorial.messaging.util.NavManager
 import kotlinx.android.synthetic.main.activity_nav_host.*
 
@@ -31,9 +30,9 @@ class NavHostActivity : AppCompatActivity(R.layout.activity_nav_host) {
     }
 
     override fun onBackPressed() {
-        val currentNavigationFragment = supportFragmentManager.currentNavigationFragment as? BackPressHandler
+        val childFragmentManager = supportFragmentManager.primaryNavigationFragment?.childFragmentManager
+        val currentNavigationFragment = childFragmentManager?.fragments?.first() as? BackPressHandler
         currentNavigationFragment?.onBackPressed()
-
         super.onBackPressed()
     }
 }
