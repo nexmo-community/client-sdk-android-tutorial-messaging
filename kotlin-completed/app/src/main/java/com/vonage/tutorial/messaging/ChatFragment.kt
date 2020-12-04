@@ -13,7 +13,6 @@ import com.nexmo.client.NexmoMemberEvent
 import com.nexmo.client.NexmoMemberState
 import com.nexmo.client.NexmoTextEvent
 import com.vonage.tutorial.R
-import com.vonage.tutorial.messaging.extension.observe
 import com.vonage.tutorial.messaging.extension.setText
 import kotlinx.android.synthetic.main.fragment_chat.*
 
@@ -65,9 +64,9 @@ class ChatFragment : Fragment(R.layout.fragment_chat), BackPressHandler {
 
         viewModel.onInit()
 
-        observe(viewModel.errorMessage, errorMessageObserver)
-        observe(viewModel.conversationEvents, conversationEvents)
-        observe(viewModel.userName, userNameObserver)
+        viewModel.errorMessage.observe(viewLifecycleOwner, errorMessageObserver)
+        viewModel.conversationEvents.observe(viewLifecycleOwner, conversationEvents)
+        viewModel.userName.observe(viewLifecycleOwner, userNameObserver)
 
         sendMessageButton.setOnClickListener {
             val message = messageEditText.text.toString()
